@@ -1,0 +1,61 @@
+@model CategoryListModel
+
+<div class="bradcam_area breadcam_bg overlay2">
+    <h3>Admin Kategoriler</h3>
+</div>
+@if(TempData["message"]!=null){
+    <partial name="_message" model="@(TempData.Get<AlertType>("message"))"/>
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-flex justify-content-end mt-4">
+            <a asp-controller="Admin" asp-action="Createcategory" class="btn btn-primary btn-lg">KATEGORİ EKLE</a>
+
+            </div>
+            <hr />
+
+
+            @if (Model.Categories.Count() > 0)
+            {
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td style="width:30px;">Id</td>
+                            <td>İsim</td>
+                            <td style="width:220px;"></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Categories)
+                        {
+                            <tr>
+                                <td>@item.id</td>
+                                <td><p class="text-capitalize font-weight-bold">@item.name</p></td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm mr-2" href="/admin/categories/@item.id">Düzenle</a>
+                                    <form action="/admin/deletecategory" method="post" style="display:inline;">
+                                        <input type="hidden" name="categoryId" value="@item.id" />
+                                        <button type="submit" class="btn btn-danger btn-sm">Kategoriyi Sil</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+            }
+            else
+            {
+                <div class="alert alert-warning">
+                    <h4>Kategori Yok</h4>
+                </div>
+            }
+
+
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+@model LoginModel
+
+@section Scripts {
+    <script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.js" integrity="sha512-Sw6xGAALk16gIMo01Nzur7z1lrF5DLbIy/cd9JiBy4yvcQsXwEnJRMHtTg2/OIO76WGv4C1yR+mCUkOtENKDTA==" crossorigin="anonymous"></script>
+}
+<div class="bradcam_area breadcam_bg overlay2">
+    <h3>Giriş Yap</h3>
+</div>
+@if(TempData["message"]!=null){
+    <partial name="_message" model="@(TempData.Get<AlertType>("message"))"/>
+}
+
+<div class = "container my-5">
+    <div class="row">
+        <div class="col-md-10">
+            <form  method="post" >
+                <div class="col-md-12 mb-4">
+                    <div asp-validation-summary="All" class="text-danger">
+
+                    </div>
+                </div>
+                <input type="hidden" asp-for="ReturnUrl">
+                <div class="form-group row">
+                    <label asp-for="Email" class="col-md-2 col-form-label"></label>
+                    <div class="col-md-10" >
+                        <input asp-for="Email"  class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label asp-for="Password" class="col-md-2 col-form-label"></label>
+                    <div  class="col-md-10">
+                        <input asp-for="Password"  class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-10 offset-md-2">
+                        <button type="submit" class="btn btn-primary mr-4">Giriş Yap</button>
+                        <a href="/account/forgotpassword" class="btn btn-link">Şifremi Unuttum</a>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>

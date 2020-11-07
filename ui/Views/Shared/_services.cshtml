@@ -1,0 +1,223 @@
+
+
+
+        <div class="white_bg_pos">
+                <div class="row">
+                        <div class="col-xl-12">
+                            @foreach (var item in Model.Services)
+                            {
+                                <div class="single_service d-flex justify-content-between align-items-center">
+                                    <div class="service_inner d-flex align-items-center">
+                                        <div class="thumb">
+                                                <img src="~/img/service/@(item.imageUrl)" alt="">
+                                        </div>
+                                        <span>@item.name</span>
+                                    </div>
+                                    <p>……………………….. <i class="fas fa-lira-sign"></i> @item.price</p>
+                                </div>
+                            }
+                        </div>
+                        <div class="col-xl-12">
+                                <div class="book_btn text-center">
+                                    <a class="boxed-btn3" href="/booking/create">Hemen Randevu Al</a>
+                                </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+  <!-- gallery_area_start -->
+    <div class="gallery_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title2 text-center mb-90">
+                        <i class="flaticon-scissors"></i>
+                        <h3>Resim Galerimiz</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="gallery_active owl-carousel">
+                        <div class="single_gallery">
+                            <div class="thumb">
+                                <img src="../../wwwroot/img/gallery/1.png" alt="">
+                                <div class="image_hover">
+                                    <a class="popup-image" href="../../wwwroot/img/gallery/1.png">
+                                        <i class="ti-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single_gallery">
+                            <div class="thumb">
+                                <img src="../../wwwroot/img/gallery/2.png" alt="">
+                                <div class="image_hover">
+                                    <a class="popup-image" href="../../wwwroot/img/gallery/2.png">
+                                        <i class="ti-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single_gallery">
+                            <div class="thumb">
+                                <img src="../../wwwroot/img/gallery/3.png" alt="">
+                                <div class="image_hover">
+                                    <a class="popup-image" href="../../wwwroot/img/gallery/3.png">
+                                        <i class="ti-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single_gallery">
+                            <div class="thumb">
+                                <img src="../../wwwroot/img/gallery/1.png" alt="">
+                                <div class="image_hover">
+                                    <a class="popup-image" href="../../wwwroot/img/gallery/1.png">
+                                        <i class="ti-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single_gallery">
+                            <div class="thumb">
+                                <img src="../../wwwroot/img/gallery/2.png" alt="">
+                                <div class="image_hover">
+                                    <a class="popup-image" href="../../wwwroot/img/gallery/2.png">
+                                        <i class="ti-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single_gallery">
+                            <div class="thumb">
+                                <img src="../../wwwroot/img/gallery/3.png" alt="">
+                                <div class="image_hover">
+                                    <a class="popup-image" href="../../wwwroot/img/gallery/3.png">
+                                        <i class="ti-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- gallery_area_end -->
+
+    <!-- video_area_start -->
+    <div class="video_area">
+        <div class="container-fluid p-0">
+            <div class="row align-items-center no-gutters">
+                <div class="col-xl-6 col-lg-6">
+                    <div class="video_info">
+                        <div class="about_info">
+                            <div class="section_title mb-20px">
+                                <span>Nasıl Çalışıyoruz?</span>
+                                <h3>Videoyu İzleyin <br>
+                                   Nasıl Çalışıyoruz?</h3>
+                            </div>
+                            <p>Inspires employees and organizations to support causes they care <br>
+                                about. We do this to bring more resources to the nonprofits that are <br>
+                                changing our world.</p>
+                            <a href="/booking/create" class="boxed-btn3">book now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6">
+                    <div class="video_thumb">
+                        <div class="video_thumb_inner">
+                            <img src="../../wwwroot/img/gallery/video.png" alt="">
+                            <a href="https://www.youtube.com/watch?v=I4NcwG-zusE" class="popup-video">
+                                <i class="fa fa-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- video_area_end -->
+
+    <!-- cutter_muster_start -->
+    <div class="cutter_muster">
+        <div class="container">
+                <div class="row">
+                        <div class="col-xl-12">
+                            <div class="section_title2 text-center mb-90">
+                                <i class="flaticon-scissors"></i>
+                                <h3>Our Cutter Masters</h3>
+                            </div>
+                        </div>
+                    </div>
+            <div class="row">
+                <div class="col-xl-3 col-md-6 col-lg-3">
+                    <div class="single_master">
+                        <div class="thumb">
+                            <img src="../../wwwroot/img/team/1.png" alt="">
+                            <div class="social_link">
+                                <a href="#"><i class="fa fa-envelope"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="master_name text-center">
+                            <h3>Macau Wilium</h3>
+                            <p>Massage Master</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-lg-3">
+                    <div class="single_master">
+                        <div class="thumb">
+                            <img src="../../wwwroot/img/team/2.png" alt="">
+                            <div class="social_link">
+                                <a href="#"><i class="fa fa-envelope"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="master_name text-center">
+                            <h3>Dan Jacky</h3>
+                            <p>Mens Cut</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-lg-3">
+                    <div class="single_master">
+                        <div class="thumb">
+                            <img src="../../wwwroot/img/team/3.png" alt="">
+                            <div class="social_link">
+                                <a href="#"><i class="fa fa-envelope"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="master_name text-center">
+                            <h3>Luka Luka</h3>
+                            <p>Mens Cut</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-lg-3">
+                    <div class="single_master">
+                        <div class="thumb">
+                            <img src="../../wwwroot/img/team/4.png" alt="">
+                            <div class="social_link">
+                                <a href="#"><i class="fa fa-envelope"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="master_name text-center">
+                            <h3>Rona Dana</h3>
+                            <p>Ladies Cut</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,73 @@
+@model CustomerList
+@section CSS{
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+}
+@section Scripts{
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+    <script>    
+        $(document).ready( function () {
+            $('#myTable').DataTable();
+        } );
+    </script>
+}
+<div class="bradcam_area breadcam_bg overlay2">
+    <h3>Müşteri Seç</h3>
+</div>
+@if(TempData["message"]!=null){
+    <partial name="_message" model="@(TempData.Get<AlertType>("message"))"/>
+}
+<div class="container my-5">
+    <div class="row ">
+        <form action="/Booking/SelectCustomer" method="POST">
+            @for (int i = 0; i < Model.Customers.Count(); i++)
+            {
+                <input type="hidden" asp-for="Customers[i].Id">
+                 <input type="hidden" asp-for="Customers[i].FirstName">
+                 <input type="hidden" asp-for="Customers[i].LastName">
+                 <input type="hidden" asp-for="Customers[i].UserName">
+            }
+
+                @if (Model.Customers.Count() > 0)
+                {
+
+                    <table class="table table-bordered " id="myTable">
+                        <thead>
+                            <tr>
+                                <td ></td>
+                                <td style="width:150px;">Müşteri ismi</td>
+                                <td >Kullanıcı Adı</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in (List<User>)Model.Customers)
+                            {
+                                <tr>
+                                    <td> 
+                                        <input type="radio" id="@item.Id" value=@item.Id name="SelectedCustomer">
+                                        <label for="@item.Id"> Seç</label>
+                                    </td>
+                                    <td><p class="text-capitalize font-weight-bold">@item.FirstName   @item.LastName</p></td>
+                                    <td> <p class="text-capitalize font-weight-bold">@item.UserName</p></td>
+                                    
+                        
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+                }
+                else
+                {
+                    <div class="alert alert-warning">
+                        <h4> Kayıtlı müşteri yok</h4>
+                    </div>
+                }
+                
+            <div class="col-xl-12 my-5">
+                <button type="submit" class="boxed-btn3">Devam et</button>
+            </div>
+        </form>
+    </div>
+</div>

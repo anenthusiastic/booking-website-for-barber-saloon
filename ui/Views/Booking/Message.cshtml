@@ -1,0 +1,18 @@
+
+<div class="bradcam_area breadcam_bg overlay2">
+    <h3>Rezervasyon Sonucu</h3>
+</div>
+@if(TempData["message"]!=null){
+    <partial name="_message" model="@(TempData.Get<AlertType>("message"))"/>
+}
+<div class="container">
+    
+    <div class="row">
+        @if(TempData.Get<AlertType>("message").Alert =="success"){
+            <h4 class="my-5">Anasayfaya gitmek için <a  href="~/">TIKLAYIN</a></h4>
+        }
+        else{
+            <h4 class="my-5"> Tekrar randevu almayı denemek için <a href="/booking/create">TIKLAYIN</a></h4>
+        }
+    </div>
+</div>

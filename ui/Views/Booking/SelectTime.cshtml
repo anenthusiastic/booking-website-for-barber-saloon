@@ -1,0 +1,52 @@
+@model BookingModel
+<div class="bradcam_area breadcam_bg overlay2">
+    <h3>Saat Seç</h3>
+</div>
+@if(TempData["message"]!=null){
+    <partial name="_message" model="@(TempData.Get<AlertType>("message"))"/>
+}
+<div class="container my-5">
+    <div class="row">
+        <form action="SelectTime" method="POST">
+            <div class="col-xl-6 col-md-6 my-5">
+                <input type="hidden" asp-for="CustomerId" >
+                 <input type="hidden" asp-for="EmployeeId" >
+                  <input type="hidden" asp-for="SelectedDay" >
+                  <input type="hidden" asp-for="StartTime" >
+                  @if(Model.BusyTimes!=null){
+                    @for (int i = 0; i < Model.BusyTimes.Count; i++)
+                    {
+                        <input type="hidden" asp-for="BusyTimes[i][0]" >
+                        <input type="hidden" asp-for="BusyTimes[i][1]" >
+                    }
+                  }
+                  
+                  
+                <input id="timepicker" placeholder="Time" asp-for="SelectedTime">
+            </div>
+            <div class="col-xl-12 mt-5">
+                <button type="submit" class="boxed-btn3">Devam et</button>
+            </div>
+          </form>
+    </div>
+</div>
+
+@section Css{
+    <link rel="stylesheet" href="~/timepicker/jquery.timepicker.css">
+}
+@section Scripts{
+<script src="~/timepicker/jquery.timepicker.min.js"></script>
+ <script>
+        var dtr = @Html.Raw(Json.Serialize(Model.BusyTimes));
+        
+        $('#timepicker').timepicker({
+            'timeFormat': 'H:i',
+            'minTime': '@Model.StartTime',
+            'maxTime': '21:00',
+             'scrollDefault': 'now',
+             'forceRoundTime': true,
+             'step':60,
+             'disableTimeRanges':dtr
+        });
+</script>
+}

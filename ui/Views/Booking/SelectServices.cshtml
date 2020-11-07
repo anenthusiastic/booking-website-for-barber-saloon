@@ -1,0 +1,58 @@
+@model BookingModel
+
+<div class="bradcam_area breadcam_bg overlay2">
+    <h3>İşlem Seç</h3>
+</div>
+@if(TempData["message"]!=null){
+    <partial name="_message" model="@(TempData.Get<AlertType>("message"))"/>
+}
+
+<div class="service_area">
+    <div class="container">
+        <div class="white_bg_pos my-5">
+            <form action="SelectServices" method="POST">
+                <div class="row">
+                    <input type="hidden" asp-for="CustomerId" >
+                    <input type="hidden" asp-for="EmployeeId" >
+                    <input type="hidden" asp-for="SelectedDay" >
+                    <input type="hidden" asp-for="SelectedTime" >
+                    @for (int i = 0; i < Model.Services.Count; i++)
+                    {
+                         <input type="hidden" asp-for="Services[i].id" >
+                         <input type="hidden" asp-for="Services[i].name" >
+                         <input type="hidden" asp-for="Services[i].imageUrl" >
+                         <input type="hidden" asp-for="Services[i].price" >
+                    }
+                    <div class="col-md-12 mx-5">
+                    @foreach (var item in (List<Service>)Model.Services){
+                    
+                        <div class="single_service d-flex justify-content-between align-items-center">
+                            <div class="service_inner d-flex align-items-center custom-control custom-checkbox " >
+                                <div class="thumb">
+                                    <img src="~/img/service/@(item.imageUrl)" alt="" >
+                                </div>
+                                <input  type="checkbox" 
+                                name="serviceIds" 
+                                value="@item.id" 
+                                class="custom-control-input p-5" 
+                                id="service@(item.id)">
+                                <label class="custom-control-label " for="service@(item.id)"><span >@item.name </span></label>
+                                
+                            </div>
+                            <p class="mr-5">............................. <i class="fas fa-lira-sign "></i> <strong>@item.price</strong></p>
+                            
+                        </div>
+                    
+                    
+                    }
+                    </div>
+                </div>
+                <div class="row ml-5">
+                    <div class="col-md-12 my-5">   
+                        <button type="submit" class="boxed-btn3">Devam et</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

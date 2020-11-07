@@ -1,0 +1,66 @@
+@model ProductListModel
+<div class="bradcam_area breadcam_bg overlay2">
+        <h3>Mağaza</h3>
+    </div>
+<div class="container my-5 ">
+    <div class="row">
+        <div class="col-md-3 ">
+            @await Component.InvokeAsync("CategoryList")
+        </div>
+        <div class="col-md-9 ">
+            @if(Model.PagingInfo.TotalItems>0){
+
+                <div class="card mb-4">
+                        <div class="card-header font-weight-bold">
+                            Search
+                        </div>
+                        <div class="p-4">
+                            <form action="/search" class="form-inline m-2 my-lg-0">
+                                <input name="search" type="search" class="form-control" placeholder="Search for..." aria-label="Search">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-success" type="submit">Go!</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+            <div class="row ">
+                @foreach (var product in Model.Products)
+                {
+                    <partial name="_product" for="@product" />
+                }
+            </div>
+            <nav aria-label="Page navigation example " class="d-flex mt-5 justify content">
+                <ul class="pagination">
+                
+                    @if(String.IsNullOrEmpty(Model.PagingInfo.CurrentCategory)){
+                        <li class="page-item  @(Model.PagingInfo.CurrentPage>1?"":"disabled")"><a class="page-link" href="/products/?page=@(Model.PagingInfo.CurrentPage-1)">Önceki</a></li>
+                        @for (int i = 0; i < Model.PagingInfo.TotalPages(); i++)
+                            {
+                                <li class="page-item  @(Model.PagingInfo.CurrentPage==i+1?"active":"")"><a class="page-link" href="/products/?page=@(i+1)">@(i+1)</a></li>
+
+                            }
+                        <li class="page-item @(Model.PagingInfo.TotalPages()>=Model.PagingInfo.CurrentPage+1?"":"disabled") "><a class="page-link" href="/products/?page=@(Model.PagingInfo.CurrentPage+1)">Sonraki</a></li>
+                    }
+                    else{
+                        <li class="page-item @(Model.PagingInfo.CurrentPage>1?"":"disabled") "><a class="page-link" href="/products/@Model.PagingInfo.CurrentCategory/?page=@(Model.PagingInfo.CurrentPage-1)">Önceki</a></li>
+                        @for (int i = 0; i < Model.PagingInfo.TotalPages(); i++)
+                            {
+                                <li class="page-item @(Model.PagingInfo.CurrentPage==i+1?"active":"")"><a class="page-link" href="/products/@Model.PagingInfo.CurrentCategory/?page=@(i+1)">@(i+1)</a></li>
+
+                            }
+                        <li class="page-item  @(Model.PagingInfo.TotalPages()>=Model.PagingInfo.CurrentPage+1?"":"disabled")"><a class="page-link" href="/products/@Model.PagingInfo.CurrentCategory/?page=@(Model.PagingInfo.CurrentPage+1)">Sonraki</a></li>
+                    }
+                    
+                </ul>
+            </nav>
+            }
+            else{
+                 <div class="alert alert-warning">
+                    <h4>Bu kategoride ürün yok!</h4>
+                </div>
+            }
+        </div>
+
+    </div>
+     
+</div>

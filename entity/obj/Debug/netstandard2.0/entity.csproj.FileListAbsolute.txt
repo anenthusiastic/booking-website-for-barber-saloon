@@ -1,0 +1,9 @@
+C:\Users\fatih\Documents\BarberWebsite\entity\bin\Debug\netstandard2.0\entity.deps.json
+C:\Users\fatih\Documents\BarberWebsite\entity\bin\Debug\netstandard2.0\entity.dll
+C:\Users\fatih\Documents\BarberWebsite\entity\bin\Debug\netstandard2.0\entity.pdb
+C:\Users\fatih\Documents\BarberWebsite\entity\obj\Debug\netstandard2.0\entity.csprojAssemblyReference.cache
+C:\Users\fatih\Documents\BarberWebsite\entity\obj\Debug\netstandard2.0\entity.AssemblyInfoInputs.cache
+C:\Users\fatih\Documents\BarberWebsite\entity\obj\Debug\netstandard2.0\entity.AssemblyInfo.cs
+C:\Users\fatih\Documents\BarberWebsite\entity\obj\Debug\netstandard2.0\entity.csproj.CoreCompileInputs.cache
+C:\Users\fatih\Documents\BarberWebsite\entity\obj\Debug\netstandard2.0\entity.dll
+C:\Users\fatih\Documents\BarberWebsite\entity\obj\Debug\netstandard2.0\entity.pdb

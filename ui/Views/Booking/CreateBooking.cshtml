@@ -1,0 +1,86 @@
+@model BookingInfoModel
+@{double toplam = 0;}
+@section Scripts {
+    <script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.js" integrity="sha512-Sw6xGAALk16gIMo01Nzur7z1lrF5DLbIy/cd9JiBy4yvcQsXwEnJRMHtTg2/OIO76WGv4C1yR+mCUkOtENKDTA==" crossorigin="anonymous"></script>
+}
+<div class="bradcam_area breadcam_bg overlay2">
+    <h3>Rezervasyon Bilgileri</h3>
+</div>
+@if(TempData["message"]!=null){
+    <partial name="_message" model="@(TempData.Get<AlertType>("message"))"/>
+}
+
+<div class="container my-5">
+    <form action="CreateBooking" method="POST">
+        <input type="hidden" asp-for="CustomerId">
+        <input type="hidden" asp-for="EmployeeId">
+        @for (int i = 0; i < Model.ServiceIds.Length; i++)
+        {
+            <input type="hidden" asp-for="ServiceIds[i]">
+        }
+        
+        <input type="hidden" asp-for="date">
+
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <h3>
+                    <strong>Kuaförünüz</strong>
+                </h3>
+                
+            </div>
+            <div class="col-md-4">
+                <h4 class="text-capitalize font-weigth-bold">@Model.barberName</h4>
+            </div>
+            <div class="col-md-4">
+               <img src="~/img/team/@Model.barberImageUrl" style="height: 5rem;" alt="">
+            </div>
+        </div> 
+        <hr> 
+        <h3 class="mb-2">
+            <strong>İşlemler</strong>
+        </h3>
+        <div class="row mb-4">
+            
+            <div class="col-md-8 ">
+                @for (int i = 0; i < Model.serviceNames.Count; i++)
+                {
+                   <hr>
+                    <h4>@Model.serviceNames[i]</h4>
+                    
+                    <h4 class="float-right mt-0"><i class="fas fa-lira-sign"></i> @Model.servicePrices[i]</h4>
+                    
+                    <div class="clearfix">
+                    </div>
+                   
+                }
+            </div>
+        </div>
+        <div class="float-right mr-5">
+            <i class="fas fa-plus"></i>
+        </div>
+        <div class="clearfix"></div>
+        <hr>
+        <div class="row mb-4">
+            
+            <div class="col-md-8 ">
+               <h3 >
+                    <strong>Toplam</strong>
+                </h3>
+                
+                
+                @for (int i = 0; i < Model.servicePrices.Count; i++)
+                {
+                    toplam+=Model.servicePrices[i];
+                }
+
+                
+                 <h4 class="float-right mt-0"><i class="fas fa-lira-sign"></i> @toplam</h4>
+                <input type="hidden" name="TotalPrice" value=@toplam>
+            </div>
+            <div class="col-md-12 mt-5">
+                <button type="submit" class="boxed-btn3">Rezervasyonu Tamamla</button>
+            </div>
+        </div>
+        </form>
+</div>

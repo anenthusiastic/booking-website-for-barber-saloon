@@ -1,0 +1,36 @@
+@model ServiceListModel
+@if(TempData["message"]!=null){
+    <partial name="_message" model="@(TempData.Get<AlertType>("message"))"/>
+}
+    <!-- slider_area_start -->
+    <div class="slider_area">
+        <div class="single_slider d-flex align-items-center justify-content-center slider_bg_1 overlay2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="slider_text text-center">
+                            <img src="~/img/banner/barber_text.png" alt="">
+                            <h3>Best Barber in <br>
+                                your Town</h3>
+                            <p>Professional Care</p>
+                        </div>
+                    </div>
+                </div>        
+            </div>
+        </div>
+    </div>
+     
+    <!-- slider_area_end -->
+
+    <partial name = "_about">
+    <div class="service_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title2 text-center mb-90">
+                        <i class="flaticon-scissors"></i>
+                        <h3>Hizmetlerimiz</h3>
+                    </div>
+                </div>
+            </div>
+    <partial name = "_services">   

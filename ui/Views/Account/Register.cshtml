@@ -1,0 +1,97 @@
+@model RegisterModel
+
+@section Scripts {
+    <script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.js" integrity="sha512-Sw6xGAALk16gIMo01Nzur7z1lrF5DLbIy/cd9JiBy4yvcQsXwEnJRMHtTg2/OIO76WGv4C1yR+mCUkOtENKDTA==" crossorigin="anonymous"></script>
+}
+<div class="bradcam_area breadcam_bg overlay2">
+    <h3>Üye Ol</h3>
+</div>
+@if(TempData["message"]!=null){
+    var alert = JsonConvert.DeserializeObject<AlertType>(TempData["message"] as String);
+    <div class = "container alert alert-@alert.Alert mt-5">
+        <p>@alert.Message</p> 
+    </div>
+}
+
+<div class = "container my-5">
+    <div class="row">
+        <div class="col-md-10">
+            <form  method="post" >
+                <div class="col-md-12">
+                    <div asp-validation-summary="All" class="text-danger">
+
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    Oluşturacağınız Şifre : 
+                    <ul class="mt-3">
+                        <li>En az 8 karakterden oluşmalıdır.</li>
+                        <li>En az bir büyük harf içermelidir.</li>
+                        <li>En az bir küçük harf içermelidir.</li>
+                        <li>En az bir rakam içermelidir.</li>
+                        <li>En az bir simge içermelidir. (Örn: .,?!'"_-/()+*><=%^~)</li>
+                        
+                    </ul>
+                </div>
+               <div class="form-group row mt-5">
+                        <label asp-for="FirstName" class="col-md-2 col-form-label"></label>
+                        <div  class="col-md-10">
+                            <input asp-for="FirstName"  class="form-control" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row mt-5">
+                        <label asp-for="LastName" class="col-md-2 col-form-label"></label>
+                        <div  class="col-md-10">
+                            <input asp-for="LastName"  class="form-control" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label asp-for="UserName" class="col-md-2 col-form-label"></label>
+                        <div class="col-md-10" >
+                            <input asp-for="UserName"  class="form-control" />
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="Password" class="col-md-2 col-form-label"></label>
+                        <div  class="col-md-10">
+                            <input asp-for="Password"  class="form-control" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="RePassword" class="col-md-2 col-form-label"></label>
+                        <div  class="col-md-10">
+                            <input asp-for="RePassword"  class="form-control" />
+                            <span asp-validation-for="RePassword" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="Email" class="col-md-2 col-form-label"></label>
+                        <div class="col-md-10">
+                            <input asp-for="Email"  class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="PhoneNumber" class="col-md-2 col-form-label"></label>
+                        <div class="col-md-10">
+                            <input asp-for="PhoneNumber"  class="form-control" />
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+               
+                <div class="form-group row">
+                    <div class="col-md-10 offset-md-2">
+                        <button type="submit" class="btn btn-primary">Üyeliği Oluştur</button>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>

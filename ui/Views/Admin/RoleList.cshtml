@@ -1,0 +1,87 @@
+@model IEnumerable<IdentityRole>
+
+<div class="bradcam_area breadcam_bg overlay2">
+    <h3>Roller</h3>
+</div>
+@if(TempData["message"]!=null){
+    <partial name="_message" model="@(TempData.Get<AlertType>("message"))"/>
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+            <hr />
+
+
+            @if (Model.Count() > 0)
+            {
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td style="width:30px;">Id</td>
+                            <td style="width:100px;">İsim</td>
+                            <td style="width:220px;"></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in (IEnumerable<IdentityRole>)Model)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td><p class="text-capitalize font-weight-bold">@item.Name</p></td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm mr-2 mb-md-0 mb-3" href="/admin/roles/@item.Id">Düzenle</a>
+                                   
+                                        
+                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal" data-whatever="@item">Rolü Sil</button>
+
+                                    <div class="modal fade" id="exampleModal"  tabindex="-50" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Rol Silme İşlemi</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                       
+                                        <div class="modal-body">
+                                            <form action="/admin/deleterole" method="post" style="display:inline;">
+                                                <p> Bu isimli rolü silmek istediğinize emin misiniz?</p> 
+                                                <input type="hidden" name="roleId" class="form-control" id="itemId">
+                                            </form>
+                                        </div>
+                                        
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Vazgeç</button>
+                                            
+                                                
+                                            <button type="submit" class="btn btn-danger">Sil</button>
+                                          
+                                        </div>
+                                        </div>
+                                    </div>
+</div>
+                                       
+                                   
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+            }
+            else
+            {
+                <div class="alert alert-warning">
+                    <h4>Rol Yok</h4>
+                </div>
+            }
+
+
+
+        </div>
+    </div>
+</div>

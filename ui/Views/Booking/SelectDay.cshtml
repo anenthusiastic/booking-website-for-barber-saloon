@@ -1,0 +1,44 @@
+@model BookingModel
+<div class="bradcam_area breadcam_bg overlay2">
+    <h3>Gün Seç</h3>
+</div>
+@if(TempData["message"]!=null){
+    <partial name="_message" model="@(TempData.Get<AlertType>("message"))"/>
+}
+<div class="container my-5">
+        <form action="SelectDay" method="POST">
+            <input type="hidden" asp-for="CustomerId" >
+            <input type="hidden" asp-for="EmployeeId" >
+            <input type="hidden" asp-for="StartDate" >
+            <input type="hidden" asp-for="EndDate" >
+                
+             <div class="my-5">
+                 <input asp-for="SelectedDay" class="datepicker">
+                 <i class="fas fa-calendar-alt"></i>
+             </div>   
+
+
+            <div class="col-xl-12 mt-5">
+                <button type="submit" class="boxed-btn3">Devam et</button>
+            </div>
+          </form>
+</div>
+@section Scripts{
+
+    <script>
+       $(".datepicker").datepicker({
+            showOn: "both",
+            dateFormat:"dd/mm/yy",
+            firstDay: 1,
+            autoSize: true,
+            dayNamesMin: [  "Pz","Pt", "Sa", "Ça", "Pe", "Cu", "Ct"],
+            monthNames:["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"],
+            minDate : "@Model.StartDate",
+            maxDate: "@Model.EndDate",
+            defaultDate:"@Model.StartDate"
+           
+        });
+        $( ".datepicker" ).datepicker( "setDate", "@Model.StartDate" );
+    </script>
+}
+ 

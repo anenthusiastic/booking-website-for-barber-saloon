@@ -1,0 +1,75 @@
+@model ProductListModel
+
+<div class="bradcam_area breadcam_bg overlay2">
+    <h3>Admin Ürünler</h3>
+</div>
+@if(TempData["message"]!=null){
+    <partial name="_message" model="@(TempData.Get<AlertType>("message"))"/>
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-flex justify-content-end mt-4">
+            <a asp-controller="Admin" asp-action="CreateProduct" class="btn btn-primary btn-lg">ÜRÜN EKLE</a>
+
+            </div>
+            <hr />
+
+
+            @if (Model.Products.Count() > 0)
+            {
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td style="width:30px;">Id</td>
+                            <td style="width:100px;">Resim</td>
+                            <td>İsim</td>
+                            <td style="width:90px;">Fiyat</td>
+                            <td style="width:50px;">Stokta Var</td>
+                            <td style="width:220px;"></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Products)
+                        {
+                            <tr>
+                                <td>@item.id</td>
+                                <td>
+                                    <img src="~/img/products/@item.imageUrl" width="80" />
+                                </td>
+                                <td><p class="text-capitalize font-weight-bold">@item.name</p></td>
+                                <td><i class="fas fa-lira-sign "></i> @item.price</td>
+                                <td>@if(item.isApproved){
+                                    <i class="fas fa-check-circle " style="color:green;"></i>
+                                    }
+                                    else{
+                                        <i class="fas fa-times-circle" style="color:red;"></i>
+                                    }
+                                </td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm mr-2 mb-md-0 mb-3" href="/admin/products/@item.id">Düzenle</a>
+                                    <form action="/admin/deleteproduct" method="post" style="display:inline;">
+                                        <input type="hidden" name="productId" value="@item.id" />
+                                        <button type="submit" class="btn btn-danger btn-sm">Ürünü Sil</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+            }
+            else
+            {
+                <div class="alert alert-warning">
+                    <h4>Ürün Yok</h4>
+                </div>
+            }
+
+
+
+        </div>
+    </div>
+</div>

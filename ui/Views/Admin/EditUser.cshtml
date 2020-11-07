@@ -1,0 +1,108 @@
+@model UserModel
+
+@section Scripts {
+    <script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.js" integrity="sha512-Sw6xGAALk16gIMo01Nzur7z1lrF5DLbIy/cd9JiBy4yvcQsXwEnJRMHtTg2/OIO76WGv4C1yR+mCUkOtENKDTA==" crossorigin="anonymous"></script>
+}
+<div class="bradcam_area breadcam_bg overlay2">
+    <h3>Kullanıcı Edit</h3>
+</div>
+@if(TempData["message"]!=null){
+    <partial name="_message" model="@(TempData.Get<AlertType>("message"))"/>
+}
+
+<div class = "container my-5">
+    <form  method="post" >
+        <div class="row">
+            <div class="col-md-8">
+                    <div class="col-md-12">
+                        <div asp-validation-summary="All" class="text-danger">
+
+                        </div>
+                    </div>
+                    <div class="form-group row mt-5">
+                        <input type="hidden" name = "Id" value="@Model.Id" >
+    
+                        <label asp-for="FirstName" class="col-md-2 col-form-label"></label>
+                        <div  class="col-md-10 ">
+                            <input asp-for="FirstName"  class="form-control" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+        
+                        <label asp-for="LastName" class="col-md-2 col-form-label"></label>
+                        <div  class="col-md-10 ">
+                            <input asp-for="LastName"  class="form-control" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="UserName" class="col-md-2 col-form-label"></label>
+                        <div class="col-md-10" >
+                            <input asp-for="UserName"  class="form-control" />
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="Email" class="col-md-2 col-form-label"></label>
+                        <div class="col-md-10">
+                            <input asp-for="Email"  class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label asp-for="PhoneNumber" class="col-md-2 col-form-label"></label>
+                        <div class="col-md-10">
+                            <input asp-for="PhoneNumber"  class="form-control" />
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                
+                    <div class="form-group row">
+                        <div class="col-md-10 offset-md-2">
+                            <button type="submit" class="btn btn-primary">Değişiklikleri Kaydet</button>
+                        </div>
+                    </div>
+                    
+                
+            </div>
+            <div class="col-md-4">
+
+                <h5 class="font-weight-bold">Kullanıcının Ait Olduğu Roller</h5>
+                <hr/>
+                @foreach (var role in ViewBag.Roles)
+                {
+
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox"
+                            name="selectedRoles"
+                            value="@role"
+                            class="custom-control-input"
+                            id="@role"
+                            @(Model.SelectedRoles.Any(i=>i == role)?"checked":"") />
+                        <label class="custom-control-label text-capitalize" for="@role">@role</label>
+                    </div>
+                }
+                <div class="mt-5"> 
+                    <h5 class="font-weight-bold">Onaylar</h5>
+                    <hr/>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox"
+                                asp-for="PhoneNumberConfirmed"
+                                class="custom-control-input"
+                                id="PhoneNumberConfirmed"/>
+                        <label class="custom-control-label " for="PhoneNumberConfirmed">Telefon Onaylı</label>
+                    </div>
+                    <div class="custom-control custom-checkbox mt-2">
+                        <input type="checkbox"
+                                asp-for="EmailConfirmed"
+                                class="custom-control-input"
+                                id="EmailConfirmed"/>
+                        <label class="custom-control-label  " for="EmailConfirmed">Email Onaylı</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

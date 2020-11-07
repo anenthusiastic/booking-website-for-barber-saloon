@@ -1,0 +1,33 @@
+@model BarberModel
+
+<div class="bradcam_area breadcam_bg overlay2">
+    <h3>Kuaför Seç</h3>
+</div>
+@if(TempData["message"]!=null){
+    <partial name="_message" model="@(TempData.Get<AlertType>("message"))"/>
+}
+<div class="container">
+    <div class="row">
+        <form action="/Booking/SelectBarber" method="POST">
+            <input type="hidden" asp-for="CustomerId">
+            @for (int i = 0; i < Model.BarberIds.Count; i++)
+            {
+                 <input type="hidden" asp-for="BarberIds[i]">
+                <input type="hidden" asp-for="Names[i]">
+            }
+           
+            <div class="col-md-12 my-5">
+                <select class="form-select wide"  asp-for="SelectedBarber">
+                    <option data-display="Kuaför Seçin">Kuaför Seçin</option>
+                   @for (int i = 0; i < Model.BarberIds.Count; i++)
+                   {
+                        <option  value="@Model.BarberIds[i]" ><h4 class="text-capitalize">@Model.Names[i]</h4></option>
+                   }
+                </select>
+            </div>
+            <div class="col-xl-12 my-5">
+                <button type="submit" class="boxed-btn3">Devam et</button>
+            </div>
+          </form>
+    </div>
+</div>

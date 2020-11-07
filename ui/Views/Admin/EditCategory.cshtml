@@ -1,0 +1,101 @@
+@model CategoryModel
+@section Scripts {
+    <script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.js" integrity="sha512-Sw6xGAALk16gIMo01Nzur7z1lrF5DLbIy/cd9JiBy4yvcQsXwEnJRMHtTg2/OIO76WGv4C1yR+mCUkOtENKDTA==" crossorigin="anonymous"></script>
+    <script>
+        CKEDITOR.replace("editor");
+    </script>
+}
+<div class="bradcam_area breadcam_bg overlay">
+    <h3>Kategori Düzenle</h3>
+</div>
+@if(TempData["message"]!=null){
+    <partial name="_message" model="@(TempData.Get<AlertType>("message"))"/>
+}
+<div class = "container my-5"> 
+    
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="row">
+            <div class="col-md-4">
+                <h4 class="my-3 font-weight-bold">
+                    Düzenle
+                </h4>
+                <hr/> 
+                <form  method="post">
+                    <input type="hidden" name="Id" value="@Model.Id" />
+                    <div class="form-group row">
+                        <label asp-for="Name" class="col-md-2 col-form-label"></label>
+                        <div class="col-md-10">
+                            <input asp-for="Name" value="@Model.Name" class="form-control text-capitalize" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-10 offset-md-2">
+                            <button type="submit" class="btn btn-primary">Kategoriyi Güncelle</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-8">
+              @if (Model.Products.Count() > 0)
+            {
+                <h4 class="my-3 font-weight-bold">
+                    Kategorideki Ürünler
+                </h4>
+                <hr/>        
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td style="width:30px;">Id</td>
+                            <td style="width:100px;">Resim</td>
+                            <td>İsim</td>
+                            <td style="width:90px;">Fiyat</td>
+                            <td style="width:50px;">Stokta Var</td>
+                            <td style="width:220px;"></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Products)
+                        {
+                            <tr>
+                                <td>@item.id</td>
+                                <td>
+                                    <img src="~/img/products/@item.imageUrl" width="80" />
+                                </td>
+                                <td><p class="text-capitalize font-weight-bold">@item.name</p></td>
+                                <td><i class="fas fa-lira-sign "></i> @item.price</td>
+                                <td>@if(item.isApproved){
+                                    <i class="fas fa-check-circle " style="color:green;"></i>
+                                    }
+                                    else{
+                                        <i class="fas fa-times-circle" style="color:red;"></i>
+                                    }
+                                </td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm mr-2 mb-3 mb-md-0" href="/admin/products/@item.id">Düzenle</a>
+                                    <form action="/admin/deletefromcategory" method="post" style="display:inline;">
+                                        <input type="hidden" name="productId" value="@item.id" />
+                                        <input type="hidden" name="categoryId" value="@Model.Id" />
+                                        <button type="submit" class="btn btn-danger btn-sm">Kategoriden Sil</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+            }
+            else
+            {
+                <div class="alert alert-warning">
+                    <h4>Bu Kategoride Ürün Yok</h4>
+                </div>
+                <div class="mt-4">
+                    <a asp-controller="Admin" asp-action="CreateProduct" class="btn btn-primary btn-lg">Hemen Bir Ürün Ekle</a>
+
+                </div>
+            }
+            </div>
+        </div>
+</div>

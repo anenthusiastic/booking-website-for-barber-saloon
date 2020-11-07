@@ -1,0 +1,32 @@
+  
+@model ProductDetailModel
+<div class="bradcam_area breadcam_bg overlay2">
+    <h3>Mağaza</h3>
+ </div>
+<div class="container my-5 ">
+    <div class="row ">
+        <div class="col-md-3">
+            <img src="~/img/products/@Model.Product.imageUrl" alt="@Model.Product.name" class="img-fluid" />
+        </div>
+        <div class="col-md-9">
+            <h1 class="text-capitalize">
+                @Model.Product.name
+            </h1>
+            <h4 >
+                @Html.Raw(Model.Product.description)
+            </h4>
+            <hr />
+
+            @foreach (var item in Model.Categories)
+            {
+                <a asp-controller="Shop" asp-action="List" asp-route-category="@item.url" class="btn btn-link p-0 mb-3">@item.name</a>
+            }
+            <div class="mb-3">
+                <h3 class="text-primary mb-3 font-weight-bold">
+                   <i class="fas fa-lira-sign "></i> @Model.Product.price
+                </h3>
+
+            </div>
+        </div>
+    </div>
+</div>

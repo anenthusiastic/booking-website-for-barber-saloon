@@ -1,0 +1,79 @@
+@model List<BookingListModel>
+@section CSS{
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+}
+@section Scripts{
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+    <script>    
+        $(document).ready( function () {
+            $('#myTable').DataTable();
+        } );
+    </script>
+}
+<div class="bradcam_area breadcam_bg overlay2">
+    <h3>Geçmiş Rezervasyonlar</h3>
+</div>
+@if(TempData["message"]!=null){
+    <partial name="_message" model="@(TempData.Get<AlertType>("message"))"/>
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-flex justify-content-end mt-4">
+            <a asp-controller="Admin" asp-action="CreateBooking" class="btn btn-primary btn-lg">REZERVASYON OLUŞTUR</a>
+
+            </div>
+            <hr />
+
+
+            @if (Model.Count() > 0)
+            {
+
+                <table class="table table-bordered" id="myTable">
+                    <thead>
+                        <tr>
+                            <td style="width:100px;">Randevu Zamanı</td>
+                            <td style="width:50px;">Müşteri</td>
+                            <td style="width:100px;">Rezervasyon Oluşturulma Zamanı</td>
+                            <td >Yapılan İşlemler</td>
+                            <td style="width:50px;">Alınan Ücret</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.BookingDate</td>
+                                <td><p class="text-capitalize font-weight-bold">@item.CustomerName</p></td>
+                                <td> @item.CreatingDate</td>
+                                <td>
+                                    <ul class="text-capitalize font-weight-bold">
+                                        @foreach (var serviceName in item.serviceNames)
+                                        {
+                                           <li>@serviceName</li>
+                                        }
+                                    </ul>
+                                </td>
+                                <td><i class="fas fa-lira-sign "></i> @item.TotalPrice</td>
+                    
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+            }
+            else
+            {
+                <div class="alert alert-warning">
+                    <h4>Daha Önce Sizin İçin Yapılmış Bir Rezervasyon Yok</h4>
+                </div>
+            }
+
+
+
+        </div>
+    </div>
+</div>

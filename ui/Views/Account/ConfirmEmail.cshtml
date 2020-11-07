@@ -1,0 +1,9 @@
+<div class="bradcam_area breadcam_bg overlay2">
+    <h3>Confirm email</h3>
+</div>
+@if(TempData["message"]!=null){
+    var alert = JsonConvert.DeserializeObject<AlertType>(TempData["message"] as String);
+    <div class = "container alert alert-@alert.Alert mt-5">
+        <p>@alert.Message</p> 
+    </div>
+}

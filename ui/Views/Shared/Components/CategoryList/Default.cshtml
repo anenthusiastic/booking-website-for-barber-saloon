@@ -1,0 +1,19 @@
+@model CategoryListViewModel
+
+
+<div class="list-group">
+        <a href="/products" class="list-group-item list-group-item-action font-weight-bold @(String.IsNullOrEmpty(Model.SelectedCategory)?"active":"")">
+            Tüm Ürünler
+        </a>
+    @foreach (var item in Model.Categories)
+    {
+        <a
+           asp-controller="Shop"
+           asp-action="List"
+           asp-route-category="@item.url"
+           class="list-group-item list-group-item-action text-capitalize font-weight-bold @(Model.SelectedCategory==item.url?"active":"")">
+            @item.name
+        </a>
+    }
+
+</div>

@@ -1,0 +1,12 @@
+C:\Users\fatih\Documents\BarberWebsite\data\bin\Debug\netstandard2.0\data.deps.json
+C:\Users\fatih\Documents\BarberWebsite\data\bin\Debug\netstandard2.0\data.dll
+C:\Users\fatih\Documents\BarberWebsite\data\bin\Debug\netstandard2.0\data.pdb
+C:\Users\fatih\Documents\BarberWebsite\data\bin\Debug\netstandard2.0\entity.dll
+C:\Users\fatih\Documents\BarberWebsite\data\bin\Debug\netstandard2.0\entity.pdb
+C:\Users\fatih\Documents\BarberWebsite\data\obj\Debug\netstandard2.0\data.csprojAssemblyReference.cache
+C:\Users\fatih\Documents\BarberWebsite\data\obj\Debug\netstandard2.0\data.AssemblyInfoInputs.cache
+C:\Users\fatih\Documents\BarberWebsite\data\obj\Debug\netstandard2.0\data.AssemblyInfo.cs
+C:\Users\fatih\Documents\BarberWebsite\data\obj\Debug\netstandard2.0\data.csproj.CoreCompileInputs.cache
+C:\Users\fatih\Documents\BarberWebsite\data\obj\Debug\netstandard2.0\data.csproj.CopyComplete
+C:\Users\fatih\Documents\BarberWebsite\data\obj\Debug\netstandard2.0\data.dll
+C:\Users\fatih\Documents\BarberWebsite\data\obj\Debug\netstandard2.0\data.pdb
