@@ -20,7 +20,7 @@ namespace data.Migrations
 
             migrationBuilder.AddColumn<string>(
                 name: "imageUrl",
-                table: "Barbers",
+                table: "Barber",
                 nullable: true);
         }
 
@@ -37,7 +37,7 @@ namespace data.Migrations
 
             migrationBuilder.DropColumn(
                 name: "imageUrl",
-                table: "Barbers");
+                table: "Barber");
 
         }
     }

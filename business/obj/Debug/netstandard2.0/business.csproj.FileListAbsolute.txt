@@ -12,3 +12,17 @@ C:\Users\fatih\Documents\BarberWebsite\business\obj\Debug\netstandard2.0\busines
 C:\Users\fatih\Documents\BarberWebsite\business\obj\Debug\netstandard2.0\business.csproj.CopyComplete
 C:\Users\fatih\Documents\BarberWebsite\business\obj\Debug\netstandard2.0\business.dll
 C:\Users\fatih\Documents\BarberWebsite\business\obj\Debug\netstandard2.0\business.pdb
+C:\Users\fatih\Desktop\barbersite\booking-website-for-barber-saloon\business\bin\Debug\netstandard2.0\business.deps.json
+C:\Users\fatih\Desktop\barbersite\booking-website-for-barber-saloon\business\bin\Debug\netstandard2.0\business.dll
+C:\Users\fatih\Desktop\barbersite\booking-website-for-barber-saloon\business\bin\Debug\netstandard2.0\business.pdb
+C:\Users\fatih\Desktop\barbersite\booking-website-for-barber-saloon\business\bin\Debug\netstandard2.0\data.dll
+C:\Users\fatih\Desktop\barbersite\booking-website-for-barber-saloon\business\bin\Debug\netstandard2.0\entity.dll
+C:\Users\fatih\Desktop\barbersite\booking-website-for-barber-saloon\business\bin\Debug\netstandard2.0\data.pdb
+C:\Users\fatih\Desktop\barbersite\booking-website-for-barber-saloon\business\bin\Debug\netstandard2.0\entity.pdb
+C:\Users\fatih\Desktop\barbersite\booking-website-for-barber-saloon\business\obj\Debug\netstandard2.0\business.csprojAssemblyReference.cache
+C:\Users\fatih\Desktop\barbersite\booking-website-for-barber-saloon\business\obj\Debug\netstandard2.0\business.AssemblyInfoInputs.cache
+C:\Users\fatih\Desktop\barbersite\booking-website-for-barber-saloon\business\obj\Debug\netstandard2.0\business.AssemblyInfo.cs
+C:\Users\fatih\Desktop\barbersite\booking-website-for-barber-saloon\business\obj\Debug\netstandard2.0\business.csproj.CoreCompileInputs.cache
+C:\Users\fatih\Desktop\barbersite\booking-website-for-barber-saloon\business\obj\Debug\netstandard2.0\business.csproj.CopyComplete
+C:\Users\fatih\Desktop\barbersite\booking-website-for-barber-saloon\business\obj\Debug\netstandard2.0\business.dll
+C:\Users\fatih\Desktop\barbersite\booking-website-for-barber-saloon\business\obj\Debug\netstandard2.0\business.pdb

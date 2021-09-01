@@ -8,7 +8,7 @@ namespace data.Migrations
         {
 
             migrationBuilder.DropTable(
-                name: "Barbers");
+                name: "Barber");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -35,7 +35,7 @@ namespace data.Migrations
                 defaultValue: 0);
 
             migrationBuilder.CreateTable(
-                name: "Barbers",
+                name: "Barber",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -45,7 +45,7 @@ namespace data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Barbers", x => x.id);
+                    table.PrimaryKey("PK_Barber", x => x.id);
                 });
 
             migrationBuilder.CreateIndex(
@@ -54,10 +54,10 @@ namespace data.Migrations
                 column: "barberId");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Bookings_Barbers_barberId",
+                name: "FK_Bookings_Barber_barberId",
                 table: "Bookings",
                 column: "barberId",
-                principalTable: "Barbers",
+                principalTable: "Barber",
                 principalColumn: "id",
                 onDelete: ReferentialAction.Cascade);
         }

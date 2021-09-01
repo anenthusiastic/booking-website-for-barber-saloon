@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fbpZIuR2t1v7ilZeiIn/DrIBugP05QIYNcXIl5AfB/KadDzTmqsWtvtBQ2r96R88PUlXvofiTp23B8zLAiSEBA==",
+  "dgSpecHash": "fIBk/hDd/A80BYgMuh4IkEhOHuSBepSrufAkT86Rb5C5SATDFSAW1XYSm3ga8nnARgXc71NyKc/hjoIhtXRFmg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\fatih\\Documents\\BarberWebsite\\entity\\entity.csproj",
+  "projectFilePath": "C:\\Users\\fatih\\Desktop\\barbersite\\booking-website-for-barber-saloon\\entity\\entity.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\fatih\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\fatih\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
